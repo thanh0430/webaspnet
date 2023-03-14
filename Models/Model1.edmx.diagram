@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="17e4df702ec446d588b8cdefa39168aa" Name="Diagram1" ZoomLevel="98">
+        <EntityTypeShape EntityType="BaitaploncuoimonModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BaitaploncuoimonModel.KhachHang" Width="1.5" PointX="6.375" PointY="1.25" />
+        <EntityTypeShape EntityType="BaitaploncuoimonModel.Tb_ChiTietHD" Width="1.5" PointX="10.875" PointY="4.875" />
+        <EntityTypeShape EntityType="BaitaploncuoimonModel.Tb_ChiTietPhieuNHap" Width="1.5" PointX="7.875" PointY="4.875" />
+        <EntityTypeShape EntityType="BaitaploncuoimonModel.Tb_ChiTietSanPham" Width="1.5" PointX="7.875" PointY="11.625" />
+        <EntityTypeShape EntityType="BaitaploncuoimonModel.Tb_DanhMucSanPham" Width="1.5" PointX="3.375" PointY="7.25" />
+        <EntityTypeShape EntityType="BaitaploncuoimonModel.Tb_HoaDon" Width="1.5" PointX="8.625" PointY="0.75" />
+        <EntityTypeShape EntityType="BaitaploncuoimonModel.Tb_Kho" Width="1.5" PointX="7.875" PointY="8.75" />
+        <EntityTypeShape EntityType="BaitaploncuoimonModel.Tb_NhaCungCap" Width="1.5" PointX="7.875" PointY="20.75" />
+        <EntityTypeShape EntityType="BaitaploncuoimonModel.Tb_NhanVien" Width="1.5" PointX="7.875" PointY="16.875" />
+        <EntityTypeShape EntityType="BaitaploncuoimonModel.Tb_PhieuNhap" Width="1.5" PointX="10.125" PointY="8.25" />
+        <EntityTypeShape EntityType="BaitaploncuoimonModel.Tb_SanPham" Width="1.5" PointX="5.625" PointY="6.375" />
+        <AssociationConnector Association="BaitaploncuoimonModel.FK_Tb_HoaDon_KhachHang" />
+        <AssociationConnector Association="BaitaploncuoimonModel.FK_Tb_ChiTietHD_Tb_HoaDon" />
+        <AssociationConnector Association="BaitaploncuoimonModel.FK_Tb_ChiTietHD_Tb_SanPham" />
+        <AssociationConnector Association="BaitaploncuoimonModel.FK_Tb_ChiTietPhieuNHap_Tb_PhieuNhap" />
+        <AssociationConnector Association="BaitaploncuoimonModel.FK_Tb_ChiTietPhieuNHap_Tb_SanPham" />
+        <AssociationConnector Association="BaitaploncuoimonModel.FK_Tb_ChiTietSanPham_Tb_SanPham" />
+        <AssociationConnector Association="BaitaploncuoimonModel.FK_Tb_SanPham_Tb_DanhMucSanPham" />
+        <AssociationConnector Association="BaitaploncuoimonModel.FK_Tb_Kho_Tb_SanPham" />
+        <AssociationConnector Association="BaitaploncuoimonModel.FK_Tb_PhieuNhap_Tb_Kho" />
+        <AssociationConnector Association="BaitaploncuoimonModel.FK_Tb_PhieuNhap_Tb_Kho1" />
+        <AssociationConnector Association="BaitaploncuoimonModel.FK_Tb_PhieuNhap_Tb_NhaCungCap" />
+        <AssociationConnector Association="BaitaploncuoimonModel.FK_Tb_PhieuNhap_Tb_NhanVien" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

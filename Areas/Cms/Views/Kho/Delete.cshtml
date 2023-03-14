@@ -1,0 +1,41 @@
+﻿@model baitapcuoimonweb.Models.Tb_Kho
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Cms/Views/Shared/_CMSpage.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tb_Kho</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tb_SanPham.TenSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tb_SanPham.TenSanPham)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

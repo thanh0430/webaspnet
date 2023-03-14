@@ -1,0 +1,51 @@
+﻿@model PagedList.IPagedList<baitapcuoimonweb.Models.Tb_SanPham>
+@using PagedList.Mvc;
+@using PagedList;
+@{
+    ViewBag.Title = "Khuyenmai";
+   
+}
+
+<div class="hot-products">
+
+    <div style="margin: 0;padding: 0;display: block;float: left; ">
+
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("SanPham","SanPham",new {id=item.Id })">
+                <div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="products">
+                            @if (item.KhuyenMai != 0)
+                            {
+                                <div class="offer">@item.KhuyenMai % </div>
+                            }
+
+                            <div class="thumbnail"><img src="@item.AnhSanPham" style="width:600px; height:200px" alt="Product Name"></div>
+                            <div class="productname">@item.TenSanPham</div>
+                            <h4 class="price">@Html.FormatValue(item.GiaBan, "{0:#,###}")đ</h4>
+                            <div class="button_group" style="margin-top:15px">
+                                @Html.ActionLink("Thêm vào giỏ", "Add", "Cart", new { Id = item.Id }, new { @class = "button add-cart" })
+                                @Html.ActionLink("Xem", "SanPham", new { id = item.Id }, new { @class = "button compare" })
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+
+
+
+        }
+        @using (Html.BeginForm())
+        {
+            <div class="toolbar">
+
+                <div class="pager">
+                    @Html.PagedListPager(Model, page => Url.Action("Khuyenmai", new { pages = page }))
+                </div>
+            </div>
+        }
+    </div>
+    </div>

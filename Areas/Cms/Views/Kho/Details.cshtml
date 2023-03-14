@@ -1,0 +1,35 @@
+﻿@model baitapcuoimonweb.Models.Tb_Kho
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Cms/Views/Shared/_CMSpage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tb_Kho</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tb_SanPham.TenSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tb_SanPham.TenSanPham)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

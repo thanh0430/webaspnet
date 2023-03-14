@@ -1,0 +1,69 @@
+﻿@model baitapcuoimonweb.Models.Tb_NhanVien
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+
+
+    <link rel="stylesheet" href="~/Areas/Contentcms/login/csslogin//style.css">
+</head>
+<body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-10">
+                    <div class="wrap d-md-flex">
+                        <div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+                            <div class="text w-100">
+                                <h2>Welcome to login</h2>
+                                <p>Quên Mật Khẩu ?</p>
+                                <a href="#" class="btn btn-white btn-outline-white">Quên Mật Khẩu</a>
+                            </div>
+                        </div>
+                        <div class="login-wrap p-4 p-lg-5">
+                            <div class="d-flex">
+                                <div class="w-100">
+                                    <h3 class="mb-4">Đăng Nhập</h3>
+                                </div>
+                            
+                            </div>
+                            @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "signin-form" }))
+                            {
+                                <div>
+                                    <div class="mb-3"> @Html.ValidationSummary()</div>
+
+                                    <div class="form-group mb-3">
+                                        <label class="label" for="name">Tài Khoản</label>
+                                        @Html.TextBoxFor(m => m.TenDanhNhap, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label class="label" for="password">Mật Khẩu</label>
+                                        @Html.PasswordFor(m => m.MatKhau, new { @class = "form-control"})
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="form-control btn btn-primary submit px-3">Đăng Nhập</button>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

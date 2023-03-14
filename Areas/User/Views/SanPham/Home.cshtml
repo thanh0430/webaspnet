@@ -1,0 +1,123 @@
+﻿@model PagedList.IPagedList<baitapcuoimonweb.Models.Tb_SanPham>
+@using PagedList.Mvc;
+@using PagedList;
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Areas/User/Views/Shared/_MyLayout1.cshtml";
+}
+
+<div class="hom-slider">
+    <div class="container" id="home">
+
+        <div id="sequence">
+            <div class="sequence-prev"><i class="fa fa-angle-left"></i></div>
+            <div class="sequence-next"><i class="fa fa-angle-right"></i></div>
+            <ul class="sequence-canvas">
+                <li class="animate-in">
+                    <div class="flat-caption caption1 formLeft delay300 text-center"><span class="suphead">Paris show 2014</span></div>
+                    <div class="flat-caption caption2 formLeft delay400 text-center">
+                        <h1>Collection For Winter</h1>
+                    </div>
+                    <div class="flat-caption caption3 formLeft delay500 text-center">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+                    </div>
+                    <div class="flat-button caption4 formLeft delay600 text-center"><a class="more" href="#">More Details</a></div>
+                    <div class="flat-image formBottom delay200" data-duration="5" data-bottom="true"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_VFh84f8JnpxQOPl1stR5zm64rnxBr0ZcfA&usqp=CAU" style="margin-top: 40px; margin-left:50px; height: 300px"></div>
+                </li>
+                <li>
+                    <div class="flat-caption caption2 formLeft delay400">
+                        <h1>Collection For Winter</h1>
+                    </div>
+                    <div class="flat-caption caption3 formLeft delay500">
+                        <h2>Etiam velit purus, luctus vitae velit sedauctor<br>egestas diam, Etiam velit purus.</h2>
+                    </div>
+                    <div class="flat-button caption5 formLeft delay600"><a class="more" href="#">More Details</a></div>
+                    <div class="flat-image formBottom delay200" data-bottom="true"><img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=600" style="height: 300px; margin-top: 30px; margin-left:50px" alt=""></div>
+                </li>
+                <li>
+                    <div class="flat-caption caption2 formLeft delay400 text-center">
+                        <h1>New Fashion of 2013</h1>
+                    </div>
+                    <div class="flat-caption caption3 formLeft delay500 text-center">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+                    </div>
+                    <div class="flat-button caption4 formLeft delay600 text-center"><a class="more" href="#">More Details</a></div>
+                    <div class="flat-image formBottom delay200" data-bottom="true"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDUJc9MGSKnWmOPmXezlVQfmsXi2DKXM9xwg&usqp=CAU" style="margin-top: 40px; margin-left: 50px; height: 300px" alt=""></div>
+                </li>
+            </ul>
+        </div>
+        <div class="promotion-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="promo-box"><img src="https://cdn.tgdd.vn/Files/2022/01/24/1412648/sale-xuyen-tet-dien-thoai-giam-soc-den-2-trieu-t-760x367.jpg" alt=""></div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="promo-box"><img src="https://cdn.tgdd.vn/Files/2021/09/11/1381882/thumb1_1280x720-800-resize.png" alt=""></div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="promo-box"><img src="https://cdn.tgdd.vn/Files/2021/11/06/1396133/sale_1280x720-800-resize.jpg" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="clearfix"></div>
+<div class="container_fullwidth">
+    <div class="container">
+        <h2> <bold>Gian Hàng</bold></h2>
+
+        <div class="hot-products">
+
+            <div style="margin: 0;padding: 0;display: block;float: left; ">
+
+                @foreach (var item in Model)
+                {
+                    <a href="@Url.Action("SanPham","SanPham",new {id=item.Id })">
+                        <div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="products">
+                                    @if (item.KhuyenMai != 0)
+                                    {
+                                        <div class="offer">@item.KhuyenMai % </div>
+                                    }
+
+                                    <div class="thumbnail"><img src="@item.AnhSanPham" style="width:600px; height:200px" alt="Product Name"></div>
+                                    <div class="productname">@item.TenSanPham</div>
+                                    <h4 class="price">@Html.FormatValue(item.GiaBan, "{0:#,###}")đ</h4>
+                                    <div class="button_group" style="margin-top:15px">
+                                        @Html.ActionLink("Thêm vào giỏ", "Add", "Cart", new { Id = item.Id }, new { @class = "button add-cart" })
+                                        @Html.ActionLink("Xem", "SanPham", new { id = item.Id }, new { @class = "button compare" })
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                }
+                @using (Html.BeginForm("Home","Sanpham"))
+                {
+                    <div class="toolbar">
+
+                        <div class="pager">
+                            @Html.PagedListPager(Model, page => Url.Action("Home", new { page = page }))
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2> <bold>Đang Khuyến Mãi</bold></h2>
+
+        @Html.Action("Khuyenmai")
+    </div>
+</div>
+
+

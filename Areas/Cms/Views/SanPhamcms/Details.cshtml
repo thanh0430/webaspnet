@@ -1,0 +1,76 @@
+﻿@model baitapcuoimonweb.Models.Tb_SanPham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Cms/Views/Shared/_CMSpage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tb_SanPham</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSanPham)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaGoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaGoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KhuyenMai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KhuyenMai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GhiChu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhSanPham)
+        </dt>
+
+        <dd>
+
+            <img src="@Model.AnhSanPham" width="100" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaBan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tb_DanhMucSanPham.LoaiSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tb_DanhMucSanPham.LoaiSanPham)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

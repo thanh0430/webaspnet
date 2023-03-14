@@ -1,0 +1,120 @@
+﻿@model baitapcuoimonweb.Models.Tb_SanPham
+
+@{
+    ViewBag.Title = "SanPham";
+    Layout = "~/Areas/User/Views/Shared/_MyLayout1.cshtml";
+}
+
+<div class="container_fullwidth">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="products-details">
+                    
+
+                    <div class="preview_image">
+                        <div class="preview-small">
+                            <img id="zoom_03" src="@Model.AnhSanPham" alt="">
+                        </div>
+
+                    </div>
+
+
+                    <div class="products-description">
+                        <h3 class="name">
+                            @Model.TenSanPham
+                        </h3>
+
+                        <p>
+                            Trạng Thái:
+                            @if (@ViewBag.soluong != 0)
+                            {
+                                <span class=" light-red">
+                                    Còn Hàng
+                                </span>
+                            }
+                            else
+                            {
+                                <span class=" light-red">
+                                    Hết Hàng
+                                </span>
+                            }
+
+
+                        </p>
+
+
+
+                        <hr class="border">
+                        <div class="price" style="display:flex;">
+                            <h4>Giá:</h4>
+                            @if (Model.KhuyenMai != 0)
+                            {
+                                <span class="new_price" style="margin-left: 50px">
+                                    @Html.FormatValue(@Model.GiaBan, "{0:#,###}")đ
+
+                                </span>
+                                <span class="old_price">
+                                    @Html.FormatValue(@Model.GiaGoc, "{0:#,###}")đ
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="new_price" style="margin-left: 50px">
+                                    @Html.FormatValue(@Model.GiaBan, "{0:#,###}")đ
+
+                                </span>
+                            }
+
+
+
+                        </div>
+                        <hr class="border">
+                        <div class="wided">
+                            @if (@ViewBag.soluong != 0)
+                            {
+                               
+                                <div class="button_group">
+
+                                    @Html.ActionLink("Thêm vào giỏ", "Add", "Cart", new { id = Model.Id, }, new { @class = "button add-cart" })
+
+                                </div>
+                            }
+                            else
+                            {
+                                <h3 class=" light-red">
+                                    Hết Hàng
+                                </h3>
+                            }
+
+
+                        </div>
+
+                        <hr class="border">
+                        <img src="images/share.png" alt="" class="pull-right">
+
+
+
+                        <div class="tab-box">
+                            <div id="tabnav">
+                                <h4>GIỚI THIỆU</h4>
+                            </div>
+
+                            <div class="tab-content-wrap">
+                                <div class="tab-content" id="Descraption">
+                                    <a>@Model.GhiChu</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

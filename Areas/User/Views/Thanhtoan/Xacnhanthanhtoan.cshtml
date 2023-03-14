@@ -1,0 +1,49 @@
+﻿@model List<baitapcuoimonweb.Models.Cart>
+
+@{
+    ViewBag.Title = "Xacnhanthanhtoan";
+    Layout = "~/Areas/User/Views/Shared/_MyLayout1.cshtml";
+}
+
+<div class="special-deal leftbar" style="margin-top:0;">
+    <h4 class="title">
+        Thông Tin đơn hàng
+    </h4>
+    @using (Html.BeginForm("Xacnhanthanhtoandonhang","Thanhtoan",FormMethod.Post))
+    {
+
+        foreach (var item in Model)
+        {
+            <div class="special-item" style="display:flex;margin-bottom:30px">
+                <div style="width:200px; margin-right:50px">
+
+                    <img src="@item.Sanpham.AnhSanPham" alt="">
+
+                </div>
+                <div class="product-info">
+                    <h2 style="font-size:30px; margin-bottom:30px">
+
+                        @item.Sanpham.TenSanPham
+
+                    </h2>
+                    <h2 style="font-size:20px">
+                        @Html.FormatValue(item.Sanpham.GiaBan, "{0:#,###}")đ VND
+                    </h2>
+                    <h2 style="font-size:20px">
+                        Số Lượng:  @item.soluong
+                    </h2>
+                </div>
+            </div>
+
+        }
+
+        <input type="submit" value="Tiếp Tục Thanh Toán" class="btn btn-default" />
+
+
+
+    }
+</div>
+
+
+
+

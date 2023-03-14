@@ -1,0 +1,190 @@
+﻿@model PagedList.IPagedList<baitapcuoimonweb.Models.Tb_SanPham>
+@using PagedList.Mvc;
+@using PagedList;
+@{
+    ViewBag.Title = "Tatcasanpham";
+    Layout = "~/Areas/User/Views/Shared/_MyLayout1.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="leftbanner">
+                <img src="~/Areas/Content/images/11ban.jpg" alt="">
+            </div>
+            <div class="product-tag leftbar" style="background-color: white;  ">
+                <h3 class="title">
+                    Hãng Sản Xuất
+                </h3>
+                <ul>
+                    <li>
+                        @Html.ActionLink("Iphone","theohang","SanPham",new
+                        {
+                            hang="iphone"
+                        }, null)
+                    </li>
+                    <li>
+                        @Html.ActionLink("Sam Sung", "theohang", "SanPham", new
+                            {
+                                hang= "samsung"
+                            }, null)
+                    <li>
+                        @Html.ActionLink("Xiaomi", "theohang","SanPham",new
+                        {
+                            hang= "xiaomi"
+                        }, null)
+                    </li>
+                    <li>
+                        @Html.ActionLink("OPPO", "theohang", "SanPham", new
+                        {
+                            hang= "oppo"
+                        }, null)
+                    </li>
+                </ul>
+            </div>
+
+            <div class="category leftbar" style="background-color: white;">
+                @using (Html.BeginForm("locphukientheohang", "SanPham", FormMethod.Get))
+                {
+                    <h3 class="title">
+                        MỨC GIÁ
+                    </h3>
+                    <ul>
+                        <li>
+                            <input id="gia" name="gia" value="1" type="radio">
+                            <span style="margin-right:10px; font-size:17px"> dưới 501,000</span>
+                        </li>
+                        <li>
+                            <input id="gia" name="gia" value="2" type="radio">
+                            <span style="margin-right:10px;font-size:17px"> 501,000-1,000,000</span>
+                        </li>
+                        <li>
+                            <input id="gia" name="gia" value="3" type="radio">
+                            <span style="margin-right:10px;font-size:17px"> 1001,000-1,500,000</span>
+                        </li>
+                        <li>
+                            <input id="gia" name="gia" value="4" type="radio">
+                            <span style="margin-right:10px;font-size:17px"> trên 1,500,000</span>
+                        </li>
+                    </ul>
+
+
+
+
+
+
+                    <input type="submit" value="lọc" style="width:100px;height:30px"/>
+                }
+
+            </div>
+            <div class="branch leftbar" style="background-color:white;">
+                <h3 class="title">
+                    Phụ Kiện
+                </h3>
+                <ul>
+                    <li>
+                        <a href="#">
+                            Cục Sạc
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Tai Nghe
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Miếng Dán Màn Hình
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Bao da ốp lưng
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="leftbanner">
+                <img src="~/Areas/Content/images/download.jpg" alt="">
+            </div>
+            <div class="leftbanner">
+                <img src="images/banner-small-01.png" alt="">
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="banner">
+                <div class="bannerslide" id="bannerslide">
+                    <ul class="slides">
+
+                        <li>
+                            <a href="#">
+                                <img src="https://cdn2.cellphones.com.vn/595x/https://dashboard.cellphones.com.vn/storage/oppo-a77s-cate-t11.jpg" style="width:1500px; height:200px;" alt="" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="https://cdn2.cellphones.com.vn/595x/https://dashboard.cellphones.com.vn/storage/cate-flip-th11.jpg" style="width:1500px; height:190px;" alt="" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+            <div class="products-list">
+                @using (Html.BeginForm())
+                {
+                    <div class="toolbar">
+
+                        <div class="pager">
+                            @Html.PagedListPager(Model, page => Url.Action("phukientheohang", new { page = page }))
+                        </div>
+                    </div>
+                }
+                <div class="row">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-4 col-sm-6">
+                            <div class="products">
+                                @if (item.KhuyenMai != 0)
+                                {
+                                    <div class="offer">@item.KhuyenMai % </div>
+                                }
+                                <div class="thumbnail">
+                                    <a href="details.html">
+                                        <img src="@item.AnhSanPham" alt="Product Name" style="height:200px">
+                                    </a>
+                                </div>
+                                <div class="productname">
+                                    <h2>@item.TenSanPham</h2>
+
+                                </div>
+                                <h4 class="price">
+                                    @Html.FormatValue(item.GiaBan, "{0:#,###}")đ
+                                </h4>
+                                <div class="button_group">
+                                    @Html.ActionLink("Thêm vào giỏ", "Add", "Cart", new { id = item.Id }, new { @class = "button add-cart" })
+                                    @Html.ActionLink("Xem", "SanPham", new { id = item.Id }, new { @class = "button compare" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                @using (Html.BeginForm())
+                {
+                    <div class="toolbar">
+                        @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber / Model.PageCount)
+                        <div class="pager">
+                            @Html.PagedListPager(Model, page => Url.Action("phukientheohang", new { page = page }))
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

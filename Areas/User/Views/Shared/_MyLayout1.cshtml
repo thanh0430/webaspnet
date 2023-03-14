@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="~/Areas/Content/images/favicon.png">
+    <title>Welcome to FlatShop</title>
+    <link href="~/Areas/Content/css/bootstrap.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
+    <link href="~/Areas/Content/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Areas/Content/css/flexslider.css" type="text/css" media="screen" />
+    <link href="~/Areas/Content/css/sequence-looptheme.css" rel="stylesheet" media="all" />
+    <link href="~/Areas/Content/css/style.css" rel="stylesheet">
+    <link href="~/Areas/Content/css/style.css" rel="stylesheet">
+    
+    @RenderSection("styles", required: false)
+</head>
+<body id="home">
+    <div class="wrapper">
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 col-sm-2">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="https://th.bing.com/th/id/OIP.I241HDo1YPmU137kCnqOMwHaHa?w=180&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="FlatShop" style="border-radius:75px; width:150px;height:150px">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-10">
+                        <div class="header_top">
+                            <div class="row">
+                             
+                                <div class="col-md-12" >
+                                    <ul class="topmenu">
+                                        <li>
+                                            <a href=" /Cms/Login/Index">
+                                                Kênh Người Bán
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Liên Hệ: 0384982547
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Tra Cứu Đơn hàng
+
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                        <div class="header_bottom">
+                            <ul class="option">
+                               
+                                <li class="option-cart">
+                                    <a href="@Url.Action("Index","Cart")" class="cart-icon">
+                                        cart
+                                      
+                                    </a>
+                              </ul>
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="sr-only">
+                                        Toggle navigation
+                                    </span>
+                                    <span class="icon-bar">
+                                    </span>
+                                    <span class="icon-bar">
+                                    </span>
+                                    <span class="icon-bar">
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li class="active dropdown">
+                                        @Html.ActionLink("Trang chủ","Home","SanPham",new { @class="dropdown-toggle"},null)
+                                       
+                                    </li>
+                                    <li class="active dropdown">
+                                        <a href="#">Điện Thoại</a>
+                                        <div class="dropdown-menu">
+                                            <ul class="mega-menu-links">
+                                                <li>@Html.ActionLink("Iphone","theohang","SanPham",new
+                                               {
+                                                  hang="iphone"
+                                               }, null)</li>
+                                                <li>
+                                                    @Html.ActionLink("Sam Sung", "theohang", "SanPham", new
+                                               {
+                                                   hang= "samsung"
+                                               }, null)
+                                                </li>
+                                                <li><a href="#">Xiaomi</a></li>
+                                                <li><a href="#">OPPO</a></li>
+                                                <li><a href="#">Nokia</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="active dropdown">
+                                        <a href="#">
+                                            Phụ kiện
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <ul class="mega-menu-links">
+
+                                                <li>
+                                                    @Html.ActionLink("Cục Sạc","phukientheohang","SanPham",new
+                                              {
+                                                 hang="cucsac"
+                                              }, null)
+                                            </li> <li>@Html.ActionLink("Tai Nghe","phukientheohang","SanPham",new
+                                               {
+                                                  hang="tainghe"
+                                               }, null)</li>
+                                           
+
+                                            </ul>
+                                    </div>
+                                    </li>
+                                    <li class="dropdown active">
+                                        <a href="@Url.Action("Tatcasanpham")">
+                                            Sản Phẩm
+                                        </a>
+                                    <li>
+                                        
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            @RenderBody()
+        </div>
+        <div class="footer">
+            <div class="footer-info">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="footer-logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <h4 class="title"> <strong>Địa chỉ</strong></h4>
+                            <p>Số 08, Nguyen Trai, Hanoi , Vietnam</p>
+                            <p>Điện thoại : 0384982547</p>
+                            <p>Email : thanhnn0403@gmail.com</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <h4 class="title"><strong> Hỗ Trợ</strong></h4>
+                            <ul class="support">
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Payment Option</a></li>
+                                <li><a href="#">Booking Tips</a></li>
+                                <li><a href="#">Infomation</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-info">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Copyright © 2012. Designed by <a href="#">Michael Lee</a>. All rights reseved</p>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="social-icon">
+                                <li><a href="#" class="linkedin"></a></li>
+                                <li><a href="#" class="twitter"></a></li>
+                                <li><a href="#" class="facebook"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="~/Areas/Content/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/Areas/Content/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="~/Areas/Content/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Areas/Content/js/jquery.sequence-min.js"></script>
+    <script type="text/javascript" src="~/Areas/Content/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script defer src="~/Areas/Content/js/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="~/Areas/Content/js/script.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body> 
+</html>

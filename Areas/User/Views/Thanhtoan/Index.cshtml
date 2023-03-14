@@ -1,0 +1,75 @@
+﻿@model baitapcuoimonweb.Models.Tb_HoaDon
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/User/Views/Shared/_MyLayout1.cshtml";
+}
+
+
+<div class="col-md-6" style="margin-top:20px; color:black">
+    <div class="checkout-page">
+        <ol class="checkout-steps">
+
+            <li class="steps active">
+                <a href="checkout.html" class="step-title">
+                    Thông Tin Thanh Toán
+                </a>
+                <div class="step-description">
+                    @using (Html.BeginForm())
+                    {
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6">
+                                <div class="your-details">
+                                    <h5>
+                                        Thông tin cá nhân
+                                    </h5>
+
+                                    <div style="width:200px;font-size:20px; margin-bottom:10px">
+                                        <h4 class="lebel-abs">
+                                            Họ và tên
+
+                                        </h4>
+
+                                    </div>
+                                    <div class="form-row">
+                                        @Html.TextBoxFor(m => m.TenKH, new { @Style = "width:350px" })
+                                    </div>
+                                    <div style="width:200px;font-size:20px; margin-bottom:10px">
+                                        <h4 class="lebel-abs">
+                                            Số Điện Thoại
+
+                                        </h4>
+
+                                    </div>
+                                    <div class="form-row">
+                                        @Html.TextBoxFor(m => m.SDTKH, new { @Style = "width:350px" })
+                                    </div>
+                                    <div style="width:200px;font-size:20px; margin-bottom:10px">
+                                        <h4 class="lebel-abs">
+                                            Địa Chỉ
+
+                                        </h4>
+
+                                    </div>
+                                    <div class="form-row">
+                                        @Html.TextBoxFor(m => m.DiaChi, new { @Style = "width:350px" })
+                                    </div>
+
+
+                                        <input type="submit" value="Tiếp Tục Thanh Toán" class="btn btn-default" />
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+
+                    
+                </div>
+            </li>
+            
+        </ol>
+      
+    </div>
+</div>
+

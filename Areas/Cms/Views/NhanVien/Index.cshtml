@@ -1,0 +1,124 @@
+﻿@model IEnumerable<baitapcuoimonweb.Models.Tb_NhanVien>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Cms/Views/Shared/_CMSpage.cshtml";
+}
+
+<h2>Quản Lý nhân viên</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "NhanVien", FormMethod.Get))
+{
+    <p>lọc nhân viên</p>
+    <div style="display:flex ; margin-bottom:20px">
+        <div style="margin-right:10px">
+            <label style="margin-right:10px">Tên: </label>
+            @Html.TextBox("search")
+
+        </div>
+
+        <div style="margin-right:10px">
+            <label style="margin-right:10px">Giới Tính</label>
+            <input id="Gender" name="Gender" value="Nam" type="radio">
+            <span style="margin-right:10px">Nam</span>
+
+            <input id="Gender" name="Gender" value="Nữ" type="radio">
+            <span style="margin-right:10px"> Nữ</span>
+        </div>
+        <div style="margin-right:10px">
+            <label style="margin-right:10px">Quê Quán: </label>
+            @Html.TextBox("quequan")
+
+        </div>
+        <div style="margin-right:10px">
+            <label style="margin-right:10px">Chức vụ: </label>
+            @Html.DropDownList("Chucvu", "--tất cả danh mục--")
+
+        </div>
+        <div style="margin-right:10px">
+            <label style="margin-right:10px">Số Điện Thoại: </label>
+            @Html.TextBox("Số Điện Thoại")
+
+        </div>
+
+    </div>
+
+    <input type="submit" value="lọc" style="border:#333 solid 2px; width:70px;" />
+
+
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenNV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CMND)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QueQuan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChucVu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDanhNhap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatKhau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CMND)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QueQuan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChucVu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDanhNhap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
